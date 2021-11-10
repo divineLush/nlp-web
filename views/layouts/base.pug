@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title #{title}
+        link(rel="icon" href="favicon.ico")
+        link(rel="stylesheet" href="/css/main.css")
+    body
+        header.base-header
+            nav.content-wrapper.flex
+                a.header-link.mr-3(href="/" class=`${title === 'home' ? '_active' : ''}`) home
+                a.header-link.mr-3(href="/products" class=`${title === 'shop' ? '_active' : ''}`) sign in
+                a.header-link.mr-3(href="/cart" class=`${title === 'cart' ? '_active' : ''}`) sign up
+        main.content-wrapper.p-1-2
+            block content

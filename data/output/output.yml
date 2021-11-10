@@ -1,0 +1,17 @@
+data:
+  - content: Paleo-Indians
+    label: norp
+    color: '#84a0c6'
+    occurences: 1
+  - content: migrated from
+  - content: Siberia
+    label: loc
+    color: '#e2a478'
+    prevlabel: norp
+    occurences: 1
+  - content: to the
+  - content: North American
+    label: norp
+    color: '#84a0c6'
+    occurences: 1
+  - content: mainland

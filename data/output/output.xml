@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<data>
+    <entity
+        label="norp"
+        color="#84a0c6"
+        occurences="1"
+    >
+        Paleo-Indians
+    </entity>
+    <entity>migrated from</entity>
+    <entity
+        label="loc"
+        color="#e2a478"
+        prevlabel="norp"
+        occurences="1"
+    >
+        Siberia
+    </entity>
+    <entity>to the</entity>
+    <entity
+        label="norp"
+        color="#84a0c6"
+        occurences="1"
+    >
+        North American
+    </entity>
+    <entity>mainland</entity>
+</data>

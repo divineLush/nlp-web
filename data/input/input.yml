@@ -1,0 +1,8 @@
+schema:
+  - label: norp
+    color: '#84a0c6'
+    matches: ["Paleo-Indians", "North American"]
+  - label: loc
+    matches: ["Siberia"]
+  - label: any
+    matches: "*"
