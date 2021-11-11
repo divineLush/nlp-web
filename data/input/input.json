@@ -1,49 +1,27 @@
 [
     {
         "labels": {
-            "NNS": [
-                [0, 6]
+            "NORP": [
+                [0, 7]
             ],
-            "VBN": [
-                [8, 15]
+            "loc": [
+                [8, 21]
             ],
-            "IN": [
-                [17, 20]
-            ],
-            "NNP": [
-                [22, 28],
-                [34, 38],
-                [40, 46]
-            ],
-            "TO": [
-                [29, 30]
-            ],
-            "DT": [31, 33]
+            "DATE": [
+                [22, 30]
+            ]
         },
-        "text": "Indians migrated from Siberia to the North America"
+        "text": "Indians North America 1999"
     },
     {
         "labels": {
-            "NNS": [
-                [0, 6]
+            "LOC": [
+                [0, 15]
             ],
-            "VBN": [
-                [8, 15],
-                [8, 15]
-            ],
-            "IN": [
-                [17, 20]
-            ],
-            "NNP": [
-                [22, 28],
-                [34, 38],
-                [40, 46]
-            ],
-            "TO": [
-                [29, 30]
-            ],
-            "DT": [31, 33]
+            "DATE": [
+                [16, 20]
+            ]
         },
-        "text": "Indians migrated from Siberia to the North America"
+        "text": "Imaginationland 1649"
     }
 ]

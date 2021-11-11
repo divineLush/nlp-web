@@ -17,8 +17,8 @@ body {
     margin: 0;
     font-size: 1.8rem;
     font-family: 'Lato', Arial, Helvetica, sans-serif;
-    background: #161821;
-    color: #c6c8d1;
+    background: #e8e9ec;
+    color: #262a3f;
 }
 
 p {
@@ -27,7 +27,7 @@ p {
 
 a {
     display: inline-block;
-    color: #e2a478;
+    color: #2d539e;
 }
 
 li:not(:last-child) {
@@ -36,19 +36,21 @@ li:not(:last-child) {
 
 a:hover,
 a:focus {
-    color: #89b8c2;
+    color: #7759B4;
 }
 
 input,
 textarea {
-    color: #c6c8d1;
-    border: 3px #c6c8d1 solid;
+    color: #8B98B6;
+    border: 3px #8B98B6 solid;
+    border-radius: 8px;
 }
 
 button {
     color: #84a0c6;
     border: 3px #84a0c6 solid;
     font-weight: bold;
+    border-radius: 8px;
 }
 
 button,
@@ -56,7 +58,7 @@ input,
 textarea {
     display: block;
     padding: .5rem 1rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-family: 'Lato', Arial, Helvetica, sans-serif;
     background: transparent;
 }
@@ -68,7 +70,7 @@ button {
 button:hover,
 button:focus {
     background: #84a0c6;
-    color: #161821;
+    color: #e8e9ec;
 }
 
 /* hide spinners */
@@ -112,6 +114,10 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
 }
 
+.jc-between {
+    justify-content: space-between;
+}
+
 .base-header {
     font-family: 'Oswald', Arial, Helvetica, sans-serif;
     padding: 1rem 2rem;
@@ -120,13 +126,12 @@ input[type=number]::-webkit-outer-spin-button {
 .header-link {
     font-size: 1.4rem;
     padding: .6rem 0;
-    color: #e27878 ;
     text-decoration: none;
 }
 
 .header-link._active {
-    color: #e2a478;
-    border-bottom: 3px solid #e2a478;
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 .content-wrapper {
@@ -144,6 +149,10 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 40px;
     color: #161821;
     position: relative;
+}
+
+.tag:not(:first-child) {
+    margin-left: 1rem;
 }
 
 .tagname {

@@ -1,32 +1,4 @@
 extends layouts/base.pug
 
 block content
-    .text-result.mb-2
-        p
-            span.tag._norp Paleo-Indians
-                span.tagname &nbsp;norp
-            |  migrated from&nbsp;
-            span.tag._loc Siberia
-                span.tagname &nbsp;loc
-            |  to the &nbsp;
-            span.tag._norp North&nbsp;American
-                span.tagname &nbsp;norp
-            |  mainland at least &nbsp;
-            span.tag._date 12,000&nbsp;years&nbsp;ago
-                span.tagname &nbsp;date
-            |  and &nbsp;
-            span.tag._norp European
-                span.tagname &nbsp;norp
-            |  colonization began in &nbsp;
-            span.tag._date the&nbsp;16th&nbsp;century
-                span.tagname &nbsp;date
-            | .
-
-    form
-        // select.mb-1(name="type")
-            option(value="0") Named Entity Recognition
-            option(value="1") 1
-            option(value="2") 2
-            option(value="3") 3
-        textarea.mb-1(name="text" rows="8" cols="50")
-        button(type="submit") submit
+    button upload corpus

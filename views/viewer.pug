@@ -1,0 +1,15 @@
+extends layouts/base.pug
+
+block content
+    .flex.jc-between.mb-2
+        form.flex
+            input.mr-1(type="text" placeholder="input query...")
+            button(type="submit") search
+        button upload new corpus
+
+    if texts.length > 0
+        each text in texts
+            .text-result.mb-2
+                each entry in text
+                    span.tag(class=`_${entry.label}`) #{entry.token}&nbsp;
+                        span.tagname #{entry.label}

@@ -6,4 +6,6 @@ const router = ex.Router()
 
 router.get('/', viewController.getIndex)
 
+router.get('/viewer', viewController.getViewer)
+
 module.exports = router
