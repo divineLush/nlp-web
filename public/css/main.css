@@ -129,8 +129,12 @@ input[type=number]::-webkit-outer-spin-button {
     text-decoration: none;
 }
 
-.header-link._active {
+.header-link:hover {
     text-decoration: underline;
+}
+
+.header-link._active {
+    color: #7759B4;
     font-weight: bold;
 }
 
