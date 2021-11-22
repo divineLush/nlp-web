@@ -20,6 +20,7 @@ exports.getAnalytics = (req, res, next) => {
 exports.postSearch = (req, res, next) => {
     const { query } = req.body
     search.execute(query, (res) => {
+        console.log(res)
         res.render('viewer/search', { res })
     })
 }
