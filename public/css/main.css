@@ -86,8 +86,16 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+.p-05-1 {
+    padding: .5rem 1rem;
+}
+
 .p-1-2 {
     padding: 1rem 2rem;
+}
+
+.pl-1 {
+    padding-left: 1rem;
 }
 
 .mb-1 {
@@ -108,6 +116,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .inlineblock {
     display: inline-block;
+}
+
+.block {
+    display: block;
 }
 
 .flex {
@@ -144,43 +156,27 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .text-result {
-    max-width: 60%;
     line-height: 4rem;
 }
 
-.tag {
-    padding: .5rem 1rem;
-    border-radius: 40px;
-    color: #161821;
-    position: relative;
+.text-meta {
+    text-align: right;
+    max-width: 30%;
 }
 
-.tag:not(:first-child) {
-    margin-left: 1rem;
+.tag {
+    border-radius: 40px;
+    color: #161821;
+}
+
+.tag:not(:last-child) {
+    margin-right: 1rem;
 }
 
 .tagname {
     font-family: 'Oswald', Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 1rem;
-}
-
-.tag._norp {
-    background: #84a0c6;
-}
-
-.tag._date {
-    background: #a093c7;
-}
-
-.tag._loc {
-    background: #e2a478;
-}
-
-@media (max-width: 768px) {
-    .text-result {
-        max-width: 100%;
-    }
 }
 
 /* .tag._norp::after { */

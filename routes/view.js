@@ -8,4 +8,6 @@ router.get('/', viewController.getIndex)
 
 router.get('/viewer', viewController.getViewer)
 
+router.get('/analytics', viewController.getViewer)
+
 module.exports = router

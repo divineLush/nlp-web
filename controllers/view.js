@@ -9,3 +9,9 @@ exports.getViewer = (req, res, next) => {
         res.render('viewer', { title: 'viewer', texts })
     })
 }
+
+exports.getAnalytics = (req, res, next) => {
+    input.parseInput((texts) => {
+        res.render('analytics', { title: 'viewer', texts })
+    })
+}

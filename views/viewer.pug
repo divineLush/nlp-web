@@ -1,5 +1,8 @@
 extends layouts/base.pug
 
+block header
+    link(rel="stylesheet" href="/css/tagcolors.css")
+
 block content
     .flex.jc-between.mb-2
         form.flex
@@ -9,7 +12,18 @@ block content
 
     if texts.length > 0
         each text in texts
-            .text-result.mb-2
-                each entry in text
-                    span.tag(class=`_${entry.label}`) #{entry.token}&nbsp;
-                        span.tagname #{entry.label}
+            .flex.jc-between.mb-2
+                .text-result
+                    each entry in text.markup
+                        span.tag.p-05-1._background(class=`_${entry.label}`) #{entry.token}&nbsp;
+                            span.tagname #{entry.label}
+                .text-meta.pl-1
+                    .mb-1
+                        a(href=`/viewer/${text.id}`) detailed view
+                    .mb-1
+                        span Tokens:&nbsp;#{text.tokenNum}
+                    .meta-labels
+                        span Labels:&nbsp;
+                        each label in text.labels
+                            span.tag._color.inlineblock(class=`_${label}`) #{label}
+
