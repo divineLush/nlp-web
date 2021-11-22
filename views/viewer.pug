@@ -5,8 +5,8 @@ block header
 
 block content
     .flex.jc-between.mb-2
-        form.flex
-            input.mr-1(type="text" placeholder="input query...")
+        form.flex(action="/viewer/search" method="POST")
+            input.mr-1(type="text" placeholder="input query..." id="query" name="query")
             button(type="submit") search
         button upload new corpus
 

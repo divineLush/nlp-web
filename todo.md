@@ -6,3 +6,7 @@
 4. Optimize parsing
 5. Implement detailed view pages
 6. Implement basic analytics
+7. Take care of sorting results
+8. Handle labels intersection
+9. Implement searching
+10. Implement pagination

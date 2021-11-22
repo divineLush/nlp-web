@@ -1,10 +1,6 @@
 const fs = require('fs')
-const path = require('path')
 const { v4: uuidv4 } = require('uuid')
-
-const root = path.dirname(process.mainModule.filename)
-
-const inputPath = path.join(root, 'data', 'input', 'input.json')
+const { inputPath } = require('../utils/path')
 
 exports.parseInput = (cb) => {
     fs.readFile(inputPath, (err, fileBuff) => {
