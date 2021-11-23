@@ -130,6 +130,10 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content: space-between;
 }
 
+.jc-center {
+    justify-content: center;
+}
+
 .base-header {
     font-family: 'Oswald', Arial, Helvetica, sans-serif;
     padding: 1rem 2rem;
@@ -177,6 +181,46 @@ input[type=number]::-webkit-outer-spin-button {
     font-family: 'Oswald', Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 1rem;
+}
+
+.upload-btn {
+    font-family: 'Oswald', Arial, Helvetica, sans-serif;
+    color: #e8e9ec;
+    background: #cc517a;
+    transition: all .3s ease;
+    outline: none;
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 1.5rem 2.5rem;
+}
+
+.upload-btn:focus,
+.upload-btn:hover {
+    color: #e8e9ec;
+    background: #cc517a;
+    box-shadow: 10px 10px #668e3d;
+    transform: scale(1.1);
+}
+
+.upload-btn:active {
+    color: #e8e9ec;
+    background: #cc517a;
+    box-shadow: 5px 5px #668e3d;
+    transform: scale(.9);
+}
+
+.blob {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.blob-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 6rem;
 }
 
 /* .tag._norp::after { */
