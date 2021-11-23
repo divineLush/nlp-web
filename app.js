@@ -7,9 +7,13 @@ const bodyParser = require('body-parser')
 const viewRoutes = require('./routes/view')
 const error = require('./controllers/error')
 
+const db = require('./utils/db')
+
 const app = ex()
 
 app.set('view engine', 'pug')
+
+db.query()
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(ex.static(path.join(__dirname, 'public')))
