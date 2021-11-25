@@ -14,6 +14,9 @@ exports.parseInput = (cb) => {
             let tokenNum = 0
 
             for (const label in labels) {
+                lowLabel = label.toLowerCase()
+                labelsByText.push(lowLabel)
+
                 for (const coords of labels[label]) {
                     const { begin, end } = coords
 
@@ -25,9 +28,6 @@ exports.parseInput = (cb) => {
                     const token = text.substring(cleanCoords.begin, cleanCoords.end)
                     if (token) {
                         tokenNum++
-                        lowLabel = label.toLowerCase()
-
-                        labelsByText.push(lowLabel)
 
                         markup.push({
                             label: lowLabel,

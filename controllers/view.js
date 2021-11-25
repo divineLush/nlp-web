@@ -17,6 +17,11 @@ exports.getAnalytics = (req, res, next) => {
     })
 }
 
+exports.getDetailedViewer = (req, res, next) => {
+    const id = req.params.id
+    res.render('viewer', { id })
+}
+
 exports.postSearch = (req, res, next) => {
     const { query } = req.body
     search.execute(query, (res) => {

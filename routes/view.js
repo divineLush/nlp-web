@@ -10,6 +10,8 @@ router.get('/viewer', viewController.getViewer)
 
 router.get('/analytics', viewController.getViewer)
 
+router.get('/viewer/:id', viewController.getDetailedViewer)
+
 router.post('/viewer/search', viewController.postSearch)
 
 module.exports = router
