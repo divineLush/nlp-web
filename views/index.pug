@@ -2,5 +2,6 @@ extends layouts/base.pug
 
 block content
     img.blob(alt="blob" src="/pics/blob.svg")
-    .blob-wrapper
-        a.upload-btn(href="/viewer") upload corpus
+    form.blob-wrapper(action="/viewer" method="POST" enctype="multipart/form-data")
+        input(type="file" id="upload" name="upload")
+        button(type="submit") upload

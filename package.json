@@ -4,14 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -L app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "divineLush",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "multer": "^1.4.3",
     "nano": "^9.0.5",
     "pug": "^3.0.2",
     "uuid": "^8.3.2"

@@ -2,4 +2,4 @@ const path = require("path")
 
 const root = path.dirname(require.main.filename)
 
-exports.inputPath = path.join(root, 'usrfiles', 'input', 'input.json')
+exports.uploadPath = fileName => path.join(root, 'uploads', fileName)

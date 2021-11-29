@@ -1,10 +1,12 @@
 const fs = require('fs')
 const { v4: uuidv4 } = require('uuid')
-const { inputPath } = require('../utils/path')
+const { uploadPath } = require('../utils/path')
 
 const nano = require('nano')('http://admin:couchdb@localhost:5984')
 
-exports.parseInput = (cb) => {
+exports.parseInput = (fileName, sessionID, cb) => {
+    const inputPath = uploadPath(fileName)
+
     fs.readFile(inputPath, (err, fileBuff) => {
         if (err) return []
 
@@ -54,10 +56,27 @@ exports.parseInput = (cb) => {
 
         // console.log('global', corpus[0])
         // console.log('sorted', sortedRes[0])
-
         const nlpweb = nano.use('nlpweb')
-        nlpweb.insert({ corpus }, { _id: uuidv4() })
+
+        nlpweb.insert({ corpus, sessionID }, uuidv4())
             .then(() => { cb(corpus) })
+            .catch(console.error)
+
+        // const query = {
+        //     selector: { sessionID }
+        // }
+
+        // nlpweb.find(query)
+        //     .then(({ docs }) => {
+        //         if (!docs.length) {
+        //             nlpweb.insert({ corpus, sessionID }, uuidv4())
+        //                 .then(() => { cb(corpus) })
+        //         } else {
+        //             cb(corpus)
+        //         }
+        //     })
+        //     .catch(console.error)
+
         // const db = getDb()
         // if (db)
         //     db
