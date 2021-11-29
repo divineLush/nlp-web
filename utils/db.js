@@ -1,16 +1,8 @@
-const { MongoClient } = require('mongodb')
+const dbName = 'nlpweb'
+const nano = require('nano')('http://admin:couchdb@localhost:5984')
 
-const url = 'mongodb://mongo:27017/docker-node-mongo'
-const client = new MongoClient()
-const dbName = 'nlpWeb'
+const createdb = nano.db.create(dbName)
+const useDb = nano.use(dbName)
 
-const connectDb = (cb) => {
-    MongoClient.connect(url)
-        .then((client) => {
-            console.log('connected to mongo!')
-            cb(client)
-        })
-        .catch((err) => { console.log('db connection error') })
-}
-
-module.exports = connectDb
+exports.createDb = createdb
+exports.useDb = useDb

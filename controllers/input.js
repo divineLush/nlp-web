@@ -2,11 +2,13 @@ const fs = require('fs')
 const { v4: uuidv4 } = require('uuid')
 const { inputPath } = require('../utils/path')
 
+const nano = require('nano')('http://admin:couchdb@localhost:5984')
+
 exports.parseInput = (cb) => {
     fs.readFile(inputPath, (err, fileBuff) => {
         if (err) return []
 
-        let globalRes = []
+        let corpus = []
 
         JSON.parse(fileBuff).forEach(({ labels, text }) => {
             const markup = []
@@ -38,7 +40,7 @@ exports.parseInput = (cb) => {
                 }
             }
 
-            globalRes.push({
+            corpus.push({
                 labels: labelsByText,
                 id: uuidv4(),
                 markup,
@@ -46,13 +48,21 @@ exports.parseInput = (cb) => {
             })
         })
 
-        // const sortedRes = globalRes.map(text =>
+        // const sortedRes = corpus.map(text =>
         //     text.sort((a, b) => a.coords.begin - b.coords.begin)
         // )
 
-        // console.log('global', globalRes[0])
+        // console.log('global', corpus[0])
         // console.log('sorted', sortedRes[0])
 
-        cb(globalRes)
+        const nlpweb = nano.use('nlpweb')
+        nlpweb.insert({ corpus }, { _id: uuidv4() })
+            .then(() => { cb(corpus) })
+        // const db = getDb()
+        // if (db)
+        //     db
+        //         .collection('corpus')
+        //         .insertOne(corpus)
+        //         .then(() => { cb(corpus) })
     })
 }
