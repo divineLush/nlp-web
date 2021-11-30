@@ -9,11 +9,11 @@
   "author": "divineLush",
   "license": "ISC",
   "dependencies": {
+    "eta": "^1.12.3",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "multer": "^1.4.3",
     "nano": "^9.0.5",
-    "pug": "^3.0.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

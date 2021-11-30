@@ -3,14 +3,14 @@ const search = require('./search')
 
 exports.getIndex = (req, res) => {
     console.log('session', req.sessionID)
-    res.render('index', { title: 'home' })
+    res.render('index')
 }
 
 exports.getViewer = (req, res) => {
     console.log('session', req.sessionID)
     const { sessionID } = req
     parseInput(sessionID, (texts) => {
-        res.render('viewer', { title: 'viewer', texts })
+        res.render('viewer', { texts })
     })
 }
 
@@ -18,7 +18,7 @@ exports.getAnalytics = (req, res) => {
     console.log('session', req.sessionID)
     const { sessionID } = req
     parseInput(sessionID, (texts) => {
-        res.render('analytics', { title: 'viewer', texts })
+        res.render('analytics', { texts })
     })
 }
 
@@ -42,6 +42,6 @@ exports.postUpload = (req, res) => {
     const { filename } = req.file
     const { sessionID } = req
     parseInput(filename, sessionID, (texts) => {
-        res.render('viewer', { title: 'viewer', texts })
+        res.render('viewer', { texts })
     })
 }

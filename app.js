@@ -8,7 +8,7 @@ const error = require('./controllers/error')
 
 const app = ex()
 
-app.set('view engine', 'pug')
+app.set('view engine', 'eta')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(ex.static(path.join(__dirname, 'public')))

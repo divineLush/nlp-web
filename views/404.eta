@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>404</title>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <header class="base-header">
+            <nav class="content-wrapper flex">
+                <a class="header-link mr-3" href="/">home</a>
+                <a class="header-link mr-3" href="/viewer">viewer</a>
+            </nav>
+        </header>
+        <main class="content-wrapper p-1-2">
+            <h1>404</h1>
+        </main>
+    </body>
+</html>
