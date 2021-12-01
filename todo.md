@@ -12,4 +12,6 @@
 10. Implement pagination
 11. RST converter for input JSON
 12. Implement ontology as input
-13. Use squirelly or eta as template engine
+13. - Use squirelly or eta as template engine -
+14. Strip file extension from corpus name in templates
+15. Don't store files while uploading

@@ -8,7 +8,14 @@ module.exports = (sessionID, cb) => {
     db.find(query)
         .then(({ docs }) => {
             const corpuslist = docs.length ? docs : []
-            cb(corpuslist)
+
+            const list = corpuslist.map(({ corpus, _id, originalName }) => {
+                const totalTokens = corpus.reduce((sum, { tokenNum }) => sum + tokenNum, 0)
+
+                return { totalTokens, _id, originalName }
+            })
+
+            cb(list)
         })
         .catch(console.error)
 }

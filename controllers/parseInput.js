@@ -2,9 +2,7 @@ const fs = require('fs')
 const { v4: uuidv4 } = require('uuid')
 const { uploadPath } = require('../utils/path')
 
-const nano = require('nano')('http://admin:couchdb@localhost:5984')
-
-module.exports = (fileName, sessionID, cb) => {
+module.exports = (fileName, cb) => {
     const inputPath = uploadPath(fileName)
 
     fs.readFile(inputPath, (err, fileBuff) => {
@@ -56,11 +54,7 @@ module.exports = (fileName, sessionID, cb) => {
 
         // console.log('global', corpus[0])
         // console.log('sorted', sortedRes[0])
-        const nlpweb = nano.use('nlpweb')
-
-        nlpweb.insert({ corpus, sessionID }, uuidv4())
-            .then(() => { cb(corpus) })
-            .catch(console.error)
+        cb(corpus)
 
         // const query = {
         //     selector: { sessionID }

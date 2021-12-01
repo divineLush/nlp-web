@@ -24,6 +24,6 @@ r.get('/text/:id', (req, res) => {
 })
 
 r.post('/corpus/search', postCorpusSearch)
-r.post('/corpus', upload.single('upload'), postCorpus)
+r.post('/corpus/upload', upload.single('upload'), postCorpus)
 
 module.exports = r

@@ -6,8 +6,17 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title><%= it.title %></title>
         <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/tagcolors.css">
     </head>
     <body>
+        <header class="font-secondary p-05-2">
+            <nav class="content-wrapper flex ai-center">
+                <a class="header-link mr-3<%= it.title === 'home' ? ' _active' : '' %>" href="/">home</a>
+                <a class="header-link mr-3<%= it.title === 'corpus list' ? ' _active' : '' %>" href="/corpus">all corpuses</a>
+                <a class="header-link mr-3<%= it.title === 'corpus' ? ' _active' : '' %>" href="/corpus/0">single corpus</a>
+                <a class="header-link mr-3<%= it.title === 'text' ? ' _active' : '' %>" href="/text/0">single text</a>
+            </nav>
+        </header>
         <main class="content-wrapper p-1-2">
             <%~ it.body %>
         </main>

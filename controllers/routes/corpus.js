@@ -1,6 +1,9 @@
+const { v4: uuidv4 } = require('uuid')
+
 const parseInput = require('../parseInput')
 const corpusList = require('../corpus/corpusList')
 const singleCorpus = require('../corpus/singleCorpus')
+const db = require('../../utils/db')
 
 exports.getCorpus = (req, res) => {
     const { sessionID } = req
@@ -18,12 +21,13 @@ exports.getCorpusID = (req, res) => {
 }
 
 exports.postCorpus = (req, res) => {
-    const { filename } = req.file
+    const { filename, originalname } = req.file
     const { sessionID } = req
-    parseInput(filename, sessionID, (corpus) => {
-        corpusList(sessionID, (corpuslist) => {
-            res.render('corpuslist', { title: 'corpus list', corpuslist })
-        })
+    parseInput(filename, (corpus) => {
+        console.log('originalname', originalname)
+        db.insert({ corpus, sessionID, originalName: originalname }, uuidv4())
+            .then(() => { res.redirect('/corpus') })
+            .catch(console.error)
     })
 }
 
