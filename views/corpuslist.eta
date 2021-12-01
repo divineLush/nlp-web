@@ -1,0 +1,19 @@
+<% layout('./layouts/viewer.eta') %>
+
+<div class="flex jc-between mb-2">
+    <form class="flex" action="/viewer/search" method="POST">
+        <input
+            class="mr-1"
+            type="text"
+            placeholder="input query"
+            id="query"
+            name="query"
+        />
+        <button type="submit">search corpuses</button>
+    </form>
+    <button>upload new corpus</button>
+</div>
+
+<% it.corpuslist.forEach(function(item) { %>
+    <a href="/corpus/<%= item._id %>"><%= item._id %></a>
+<% })%>

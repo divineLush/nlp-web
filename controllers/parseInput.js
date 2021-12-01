@@ -4,7 +4,7 @@ const { uploadPath } = require('../utils/path')
 
 const nano = require('nano')('http://admin:couchdb@localhost:5984')
 
-exports.parseInput = (fileName, sessionID, cb) => {
+module.exports = (fileName, sessionID, cb) => {
     const inputPath = uploadPath(fileName)
 
     fs.readFile(inputPath, (err, fileBuff) => {

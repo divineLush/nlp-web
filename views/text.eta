@@ -1,0 +1,3 @@
+<% layout('./layouts/base.eta') %>
+
+<h1>here is text</h1>
