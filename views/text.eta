@@ -1,3 +1,17 @@
 <% layout('./layouts/base.eta') %>
 
-<h1>text</h1>
+<% if(it.text.markup === 0) { %>
+    <h1 class="textcenter">there is no such text</h1>
+    <%~ includeFile('./partials/blob') %>
+<% } %>
+
+<section class="text-result slidein">
+    <% it.text.markup.forEach(function(entry) { %>
+        <span class="tag p-05-1 _background _<%= entry.label %>">
+            <%= entry.token %>&nbsp;
+            <span class="tagname">
+                <%= entry.label %>
+            </span>
+        </span>
+    <% }) %>
+</section>

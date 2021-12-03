@@ -2,6 +2,6 @@
 
 <%~ includeFile('./partials/blob') %>
 <form action="corpus/upload" method="POST" enctype="multipart/form-data">
-    <input type="file" id="upload" name="upload" />
-    <button type="submit">upload</button>
+    <input class="mb-2" type="file" accept=".json, .xml, .yml, .yaml" id="upload" name="upload" required />
+    <button class="upload-btn" type="submit">Submit</button>
 </form>

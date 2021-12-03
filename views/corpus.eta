@@ -17,35 +17,40 @@
     </div>
 </div>
 
-<% it.corpus.forEach(function(text) { %>
-    <a class="roundblock flex jc-between mb-1 p-1-2" href="/text/<%= text.id %>">
+<section class="slidein">
+    <% it.corpus.forEach(function(text) { %>
+        <a
+            class="roundblock flex jc-between mb-1 p-1-2"
+            href="/corpus/<%= it.corpusID %>/<%= text.id %>"
+        >
 
-        <div class="text-result">
+            <div class="text-result">
 
-            <% text.markup.forEach(function(entry) { %>
-                <span class="tag p-05-1 _background _<%= entry.label %>">
-                    <%= entry.token %>&nbsp;
-                    <span class="tagname">
-                        <%= entry.label %>
-                    </span>
-                </span>
-            <% }) %>
-
-        </div>
-
-        <div class="text-meta pl-1">
-            <div class="mb-1">
-                <span>Tokens:&nbsp;<%= text.tokenNum %></span>
-            </div>
-            <div class="meta-labels">
-                <span>Labels:&nbsp;</span>
-                <% text.labels.forEach(function(label) { %>
-                    <span class="tag _color inlineblock _<%= label %>">
-                        <%= label %>
+                <% text.markup.forEach(function(entry) { %>
+                    <span class="tag p-05-1 _background _<%= entry.label %>">
+                        <%= entry.token %>&nbsp;
+                        <span class="tagname">
+                            <%= entry.label %>
+                        </span>
                     </span>
                 <% }) %>
-            </div>
-        </div>
 
-    </a>
-<% })%>
+            </div>
+
+            <div class="text-meta pl-1">
+                <div class="mb-1">
+                    <span>Tokens:&nbsp;<%= text.tokenNum %></span>
+                </div>
+                <div class="meta-labels">
+                    <span>Labels:&nbsp;</span>
+                    <% text.labels.forEach(function(label) { %>
+                        <span class="tag _color inlineblock _<%= label %>">
+                            <%= label %>
+                        </span>
+                    <% }) %>
+                </div>
+            </div>
+
+        </a>
+    <% })%>
+</section>

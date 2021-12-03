@@ -46,6 +46,25 @@ textarea {
     border-radius: 8px;
 }
 
+input[type=file] {
+    border: 0;
+    padding: 0;
+    color: #33374c;
+}
+
+input[type=file]::-webkit-file-upload-button,
+input[type=file]::file-selector-button {
+    margin-right: 1rem;
+    padding: 1rem 2rem;
+    color: #e8e9ec;
+    background: #33374c;
+    font-family: 'Oswald', Arial, Helvetica, sans-serif;
+    border: 3px #33374c solid;
+    border-radius: 16px;
+    cursor: pointer;
+    width: 16rem;
+}
+
 button {
     color: #84a0c6;
     border: 3px #84a0c6 solid;
@@ -206,8 +225,10 @@ input[type=number]::-webkit-outer-spin-button {
     transition: all .3s ease;
     outline: none;
     text-decoration: none;
+    border: 0;
     border-radius: 8px;
     padding: 1.5rem 2.5rem;
+    width: 16rem;
 }
 
 .upload-btn:focus,
@@ -256,6 +277,20 @@ input[type=number]::-webkit-outer-spin-button {
 .roundblock:focus {
     background: #b3becb;
     color: #262a3f;
+}
+
+.slidein {
+    animation: slidein .5s ease;
+}
+
+@keyframes slidein {
+    from {
+        transform: translateY(30px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }
 
 /* .tag._norp::after { */

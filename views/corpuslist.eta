@@ -19,9 +19,12 @@
     <%~ includeFile('./partials/blob') %>
 <% } %>
 
-<div class="flex flexwrap">
-    <% it.corpuslist.forEach(function(corpusItem) { %>
-        <a class="roundblock corpus-item p-1-2 mb-1 mr-1" href="/corpus/<%= corpusItem._id %>">
+<div class="flex flexwrap slidein">
+    <% it.corpuslist.forEach(function(corpusItem, idx) { %>
+        <a
+            class="roundblock corpus-item p-1-2 mb-1 mr-1"
+            href="/corpus/<%= corpusItem._id %>"
+        >
             <div class="pb-05"><%= corpusItem.originalName %></div>
             <div>Tokens: <%= corpusItem.totalTokens %></div>
         </a>

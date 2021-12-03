@@ -12,9 +12,8 @@
         <header class="font-secondary p-05-2">
             <nav class="content-wrapper flex ai-center">
                 <a class="header-link mr-3<%= it.title === 'home' ? ' _active' : '' %>" href="/">home</a>
-                <a class="header-link mr-3<%= it.title === 'corpus list' ? ' _active' : '' %>" href="/corpus">all corpuses</a>
-                <a class="header-link mr-3<%= it.title === 'corpus' ? ' _active' : '' %>" href="/corpus/0">single corpus</a>
-                <a class="header-link mr-3<%= it.title === 'text' ? ' _active' : '' %>" href="/text/0">single text</a>
+                <a class="header-link mr-3<%= (it.title === 'corpus list' || it.title === 'corpus' || it.title === 'text') ? ' _active' : '' %>" href="/corpus">view</a>
+                <a class="header-link mr-3<%= it.title === 'compare' ? ' _active' : '' %>" href="/corpus/0">compare</a>
             </nav>
         </header>
         <main class="content-wrapper p-1-2">

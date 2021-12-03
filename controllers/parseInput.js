@@ -52,30 +52,6 @@ module.exports = (fileName, cb) => {
         //     text.sort((a, b) => a.coords.begin - b.coords.begin)
         // )
 
-        // console.log('global', corpus[0])
-        // console.log('sorted', sortedRes[0])
         cb(corpus)
-
-        // const query = {
-        //     selector: { sessionID }
-        // }
-
-        // nlpweb.find(query)
-        //     .then(({ docs }) => {
-        //         if (!docs.length) {
-        //             nlpweb.insert({ corpus, sessionID }, uuidv4())
-        //                 .then(() => { cb(corpus) })
-        //         } else {
-        //             cb(corpus)
-        //         }
-        //     })
-        //     .catch(console.error)
-
-        // const db = getDb()
-        // if (db)
-        //     db
-        //         .collection('corpus')
-        //         .insertOne(corpus)
-        //         .then(() => { cb(corpus) })
     })
 }

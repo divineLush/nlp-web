@@ -7,7 +7,8 @@ const {
     getCorpus,
     getCorpusID,
     postCorpus,
-    postCorpusSearch
+    postCorpusSearch,
+    getText
 } = require('./controllers/routes/corpus')
 
 const r = Router()
@@ -18,10 +19,7 @@ r.get('/', getIndex)
 r.get('/corpus', getCorpus)
 r.get('/corpus/:id', getCorpusID)
 
-r.get('/text/:id', (req, res) => {
-    const id = req.params.id
-    res.render('text', { title: 'text', id })
-})
+r.get('/corpus/:id/:textID', getText)
 
 r.post('/corpus/search', postCorpusSearch)
 r.post('/corpus/upload', upload.single('upload'), postCorpus)
