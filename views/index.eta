@@ -1,6 +1,6 @@
 <% layout('./layouts/base.eta') %>
 
-<img class="blob" src="pics/blob.svg"/>
+<%~ includeFile('./partials/blob') %>
 <form action="corpus/upload" method="POST" enctype="multipart/form-data">
     <input type="file" id="upload" name="upload" />
     <button type="submit">upload</button>

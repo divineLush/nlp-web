@@ -14,6 +14,11 @@
     <button>upload new corpus</button>
 </div>
 
+<% if(it.corpuslist.length === 0) { %>
+    <h1 class="textcenter">looks like you haven't uploaded any corpuses yet</h1>
+    <%~ includeFile('./partials/blob') %>
+<% } %>
+
 <div class="flex flexwrap">
     <% it.corpuslist.forEach(function(corpusItem) { %>
         <a class="roundblock corpus-item p-1-2 mb-1 mr-1" href="/corpus/<%= corpusItem._id %>">

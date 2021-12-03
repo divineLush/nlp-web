@@ -189,6 +189,10 @@ input[type=number]::-webkit-outer-spin-button {
     margin-right: 1rem;
 }
 
+.textcenter {
+    text-align: center;
+}
+
 .tagname {
     font-family: 'Oswald', Arial, Helvetica, sans-serif;
     font-weight: bold;

@@ -15,3 +15,6 @@
 13. - Use squirelly or eta as template engine -
 14. Strip file extension from corpus name in templates
 15. Don't store files while uploading
+16. Compare corpuses page
+17. Edit corpush page + naming
+18. Integration with brat, nlp.js, custom input format in input1.json

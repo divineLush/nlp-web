@@ -26,7 +26,13 @@ exports.postCorpus = (req, res) => {
     parseInput(filename, (corpus) => {
         console.log('originalname', originalname)
         db.insert({ corpus, sessionID, originalName: originalname }, uuidv4())
-            .then(() => { res.redirect('/corpus') })
+            .then(({ id, rev }) => {
+                res.redirect('/corpus')
+                // clean up after 2 hours
+                setTimeout(() => {
+                    db.destroy(id, rev)
+                }, 7200000)
+            })
             .catch(console.error)
     })
 }
