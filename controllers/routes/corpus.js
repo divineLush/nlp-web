@@ -1,12 +1,6 @@
-const fs = require('fs')
-const { v4: uuidv4 } = require('uuid')
-
-const parseInput = require('../parseInput')
 const corpusList = require('../corpus/corpusList')
 const singleCorpus = require('../corpus/singleCorpus')
 const textByCorpus = require('../corpus/textByCorpus')
-const db = require('../../utils/db')
-const { uploadPath } = require('../../utils/path')
 
 exports.getCorpus = (req, res) => {
     const { sessionID } = req
@@ -20,23 +14,6 @@ exports.getCorpusID = (req, res) => {
     const { sessionID } = req
     singleCorpus(id, sessionID, (corpus) => {
         res.render('corpus', { title: 'corpus', corpusID: id, corpus })
-    })
-}
-
-exports.postCorpus = (req, res) => {
-    const { filename, originalname } = req.file
-    const { sessionID } = req
-    parseInput(filename, (corpus) => {
-        db.insert({ corpus, sessionID, originalName: originalname }, uuidv4())
-            .then(({ id, rev }) => {
-                res.redirect('/corpus')
-                // clean up after 2 hours
-                setTimeout(() => {
-                    fs.unlink(uploadPath(filename), console.error)
-                    db.destroy(id, rev)
-                }, 7200000)
-            })
-            .catch(console.error)
     })
 }
 
