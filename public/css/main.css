@@ -130,6 +130,10 @@ input[type=number]::-webkit-outer-spin-button {
     padding-bottom: 0.5rem;
 }
 
+.m-0 {
+    margin: 0;
+}
+
 .mb-1 {
     margin-bottom: 1rem;
 }
@@ -233,6 +237,7 @@ input[type=number]::-webkit-outer-spin-button {
     border: 0;
     border-radius: 8px;
     padding: 1.5rem 2.5rem;
+    margin-left: auto;
     width: 17rem;
 }
 
@@ -259,6 +264,10 @@ input[type=number]::-webkit-outer-spin-button {
     z-index: -1;
 }
 
+.wordbreak {
+    word-break: break-all;
+}
+
 .blob-wrapper {
     display: flex;
     justify-content: center;
@@ -282,6 +291,12 @@ input[type=number]::-webkit-outer-spin-button {
 .roundblock:focus {
     background: #b3becb;
     color: #262a3f;
+}
+
+.upload-form {
+    max-width: 80%;
+    margin: auto;
+    margin-top: 5rem;
 }
 
 .slidein {

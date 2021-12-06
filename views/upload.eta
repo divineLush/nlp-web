@@ -1,7 +1,6 @@
 <% layout('./layouts/base.eta') %>
 
-<%~ includeFile('./partials/blob') %>
-<form class="flex jc-between" action="upload" method="POST" enctype="multipart/form-data">
+<form class="upload-form" action="upload" method="POST" enctype="multipart/form-data">
     <input type="file" accept=".json, .xml, .yml, .yaml" id="upload" name="upload" required />
     <button class="upload-btn" type="submit">Submit</button>
 </form>

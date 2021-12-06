@@ -1,22 +1,21 @@
 <% layout('./layouts/base.eta') %>
 
-<div class="flex jc-between mb-2">
-    <form class="flex" action="/viewer/search" method="POST">
-        <input
-            class="mr-1"
-            type="text"
-            placeholder="input query"
-            id="query"
-            name="query"
-        />
-        <button type="submit">search corpuses</button>
-    </form>
-    <button>upload new corpus</button>
-</div>
-
 <% if(it.corpuslist.length === 0) { %>
     <h1 class="textcenter">looks like you haven't uploaded any corpuses yet</h1>
-    <%~ includeFile('./partials/blob') %>
+<% } else { %>
+    <div class="flex jc-between mb-2">
+        <form class="flex" action="/viewer/search" method="POST">
+            <input
+                class="mr-1"
+                type="text"
+                placeholder="input query"
+                id="query"
+                name="query"
+            />
+            <button type="submit">search corpuses</button>
+        </form>
+        <button>upload new corpus</button>
+    </div>
 <% } %>
 
 <div class="flex flexwrap slidein">
@@ -25,7 +24,7 @@
             class="roundblock corpus-item p-1-2 mb-1 mr-1"
             href="/corpus/<%= corpusItem._id %>"
         >
-            <div class="pb-05"><%= corpusItem.originalName %></div>
+            <h4 class="wordbreak m-0 pb-05"><%= corpusItem.originalName %></h4>
             <div>Tokens: <%= corpusItem.totalTokens %></div>
         </a>
     <% })%>

@@ -2,7 +2,6 @@
 
 <% if(it.text.markup === 0) { %>
     <h1 class="textcenter">there is no such text</h1>
-    <%~ includeFile('./partials/blob') %>
 <% } %>
 
 <section class="text-result slidein">
