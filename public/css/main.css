@@ -64,7 +64,7 @@ input[type=file]::file-selector-button {
     background: #33374c;
     font-family: 'Oswald', Arial, Helvetica, sans-serif;
     border: 3px #33374c solid;
-    border-radius: 16px;
+    border-radius: 8px;
     cursor: pointer;
     width: 17rem;
     height: 100%;
@@ -235,7 +235,6 @@ input[type=number]::-webkit-outer-spin-button {
     outline: none;
     text-decoration: none;
     border: 0;
-    border-radius: 8px;
     padding: 1.5rem 2.5rem;
     margin-left: auto;
     width: 17rem;
@@ -296,7 +295,7 @@ input[type=number]::-webkit-outer-spin-button {
 .upload-form {
     max-width: 80%;
     margin: auto;
-    margin-top: 5rem;
+    margin-top: 4rem;
 }
 
 .slidein {
