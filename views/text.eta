@@ -5,7 +5,7 @@
         <a class="mr-1" href="/corpus">back to corpus list</a>
         <a href="/corpus/<%= it.text.corpusID %>">back to corpus</a>
     </nav>
-    <section class="text-result slidein">
+    <section class="text-result">
         <% it.text.markup.forEach(function(entry) { %>
             <app-token class="tag p-05-1 _background _<%= entry.label %>">
                 <%= entry.token %>&nbsp;

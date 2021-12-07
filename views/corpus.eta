@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <section class="slidein">
+    <section>
         <% it.corpus.forEach(function(text) { %>
             <a
                 class="roundblock flex jc-between mb-1 p-1-2"

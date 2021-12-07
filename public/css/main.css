@@ -298,20 +298,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 4rem;
 }
 
-.slidein {
-    animation: slidein .5s ease;
-}
-
-@keyframes slidein {
-    from {
-        transform: translateY(30px);
-    }
-
-    to {
-        transform: translateY(0);
-    }
-}
-
 /* .tag._norp::after { */
 /*     content: 'norp'; */
 /*     position: absolute; */
