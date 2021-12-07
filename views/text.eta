@@ -1,12 +1,10 @@
 <% layout('./layouts/text.eta') %>
 
-<nav class="mb-1">
-    <a class="mr-1" href="/corpus">back to corpus list</a>
-    <% if(it.text) { %>
+<% if(it.text && it.text.markup && it.text.markup.length) { %>
+    <nav class="mb-1">
+        <a class="mr-1" href="/corpus">back to corpus list</a>
         <a href="/corpus/<%= it.text.corpusID %>">back to corpus</a>
-    <% } %>
-</nav>
-<% if(it.text) { %>
+    </nav>
     <section class="text-result slidein">
         <% it.text.markup.forEach(function(entry) { %>
             <app-token class="tag p-05-1 _background _<%= entry.label %>">
@@ -19,4 +17,5 @@
     </section>
 <% } else { %>
     <h1 class="textcenter">there is no such text</h1>
+    <a class="mr-1 block textcenter" href="/corpus">back to corpus list</a>
 <% } %>
