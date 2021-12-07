@@ -8,8 +8,9 @@
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/tagcolors.css">
         <script src="/js/arrows.js"></script>
+        <script src="/js/tokenComponent.js"></script>
     </head>
-    <body onload="renderArrows()">
+    <body onload="renderArrows()" onresize="renderArrows()">
         <header class="font-secondary p-05-2">
             <nav class="content-wrapper flex ai-center">
                 <a class="header-link mr-3<%= it.title === 'home' ? ' _active' : '' %>" href="/">home</a>

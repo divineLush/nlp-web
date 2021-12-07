@@ -7,7 +7,7 @@ module.exports = (_id, sessionID, cb) => {
 
     db.find(query)
         .then(({ docs }) => {
-            const corpus = docs.length ? docs[0].corpus : []
+            const corpus = docs.length ? docs[0].corpus : null
             cb(corpus)
         })
         .catch(console.error)

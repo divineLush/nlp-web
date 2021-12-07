@@ -17,7 +17,7 @@ exports.getCorpusID = (req, res) => {
     })
 }
 
-exports.postCorpusSearch =(req, res) => {
+exports.postCorpusSearch = (req, res) => {
     res.redirect('/')
 }
 

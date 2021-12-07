@@ -16,16 +16,15 @@
         </form>
         <button>upload new corpus</button>
     </div>
+    <div class="flex flexwrap slidein">
+        <% it.corpuslist.forEach(function(corpusItem, idx) { %>
+            <a
+                class="roundblock corpus-item p-1-2 mb-1 mr-1"
+                href="/corpus/<%= corpusItem._id %>"
+            >
+                <h4 class="wordbreak m-0 pb-05"><%= corpusItem.originalName %></h4>
+                <div>Tokens: <%= corpusItem.totalTokens %></div>
+            </a>
+        <% })%>
+    </div>
 <% } %>
-
-<div class="flex flexwrap slidein">
-    <% it.corpuslist.forEach(function(corpusItem, idx) { %>
-        <a
-            class="roundblock corpus-item p-1-2 mb-1 mr-1"
-            href="/corpus/<%= corpusItem._id %>"
-        >
-            <h4 class="wordbreak m-0 pb-05"><%= corpusItem.originalName %></h4>
-            <div>Tokens: <%= corpusItem.totalTokens %></div>
-        </a>
-    <% })%>
-</div>

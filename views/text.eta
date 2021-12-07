@@ -1,16 +1,22 @@
 <% layout('./layouts/text.eta') %>
 
-<% if(it.text.markup === 0) { %>
+<nav class="mb-1">
+    <a class="mr-1" href="/corpus">back to corpus list</a>
+    <% if(it.text) { %>
+        <a href="/corpus/<%= it.text.corpusID %>">back to corpus</a>
+    <% } %>
+</nav>
+<% if(it.text) { %>
+    <section class="text-result slidein">
+        <% it.text.markup.forEach(function(entry) { %>
+            <app-token class="tag p-05-1 _background _<%= entry.label %>">
+                <%= entry.token %>&nbsp;
+                <span class="tagname">
+                    <%= entry.label %>
+                </span>
+            </app-token>
+        <% }) %>
+    </section>
+<% } else { %>
     <h1 class="textcenter">there is no such text</h1>
 <% } %>
-
-<section class="text-result slidein">
-    <% it.text.markup.forEach(function(entry) { %>
-        <span class="tag p-05-1 _background _<%= entry.label %>">
-            <%= entry.token %>&nbsp;
-            <span class="tagname">
-                <%= entry.label %>
-            </span>
-        </span>
-    <% }) %>
-</section>

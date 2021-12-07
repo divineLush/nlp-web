@@ -3,7 +3,7 @@ function createSVG() {
     if (null == svg) {
         svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttribute('id', 'svg-canvas');
-        svg.setAttribute('style', 'position:absolute;top:0px;left:0px');
+        svg.setAttribute('style', 'position:absolute;top:0px;left:0px;pointer-events:none');
         svg.setAttribute('width', document.body.clientWidth);
         svg.setAttribute('height', document.body.clientHeight);
         svg.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
@@ -65,15 +65,29 @@ function drawCurvedLine(x1, y1, x2, y2, color, tension) {
     var svg = createSVG();
     var shape = document.createElementNS("http://www.w3.org/2000/svg",
                                          "path");
-    var delta = (x2-x1)*tension;
-    var hx1=x1+delta;
-    var hy1=y1;
-    var hx2=x2-delta;
-    var hy2=y2;
-    var path = "M "  + x1 + " " + y1 +
-               " C " + hx1 + " " + hy1
-                     + " "  + hx2 + " " + hy2
-               + " " + x2 + " " + y2;
+
+    if (tension<0) {
+        var delta = (y2-y1)*tension;
+        var hx1=x1;
+        var hy1=y1-delta;
+        var hx2=x2;
+        var hy2=y2+delta;
+        var path = "M " + x1 + " " + y1 +
+                " C " + hx1 + " " + hy1 + " "
+                        + hx2 + " " + hy2 + " "
+                        + x2 + " " + y2;
+    } else {
+        var delta = (x2-x1)*tension;
+        var hx1=x1+delta;
+        var hy1=y1;
+        var hx2=x2-delta;
+        var hy2=y2;
+        var path = "M " + x1 + " " + y1 +
+                " C " + hx1 + " " + hy1 + " "
+                        + hx2 + " " + hy2 + " "
+                        + x2 + " " + y2;
+    }
+
     shape.setAttributeNS(null, "d", path);
     shape.setAttributeNS(null, "fill", "none");
     shape.setAttributeNS(null, "stroke", color);
@@ -81,7 +95,11 @@ function drawCurvedLine(x1, y1, x2, y2, color, tension) {
 }
 
 function renderArrows() {
-    console.log(123123231)
+    var svg = document.getElementById("svg-canvas");
+    if (svg) {
+        svg.parentNode.removeChild(svg)
+    }
+
     var tags = document.querySelectorAll('.tag')
     var left = tags[0]
     var right = tags[4]

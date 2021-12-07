@@ -5,6 +5,6 @@ module.exports = (corpusID, sessionID, textID, cb) => {
         if (!corpus.length) cb(null)
 
         const text = corpus.find(({ id }) => id === textID)
-        cb(text)
+        cb({ ...text, corpusID })
     })
 }
