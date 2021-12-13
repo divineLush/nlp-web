@@ -14,7 +14,14 @@ exports.postUpload = (req, res) => {
     const { filename, originalname } = req.file
     const { sessionID } = req
     parseInput(filename, (corpus) => {
-        db.insert({ corpus, sessionID, originalName: originalname }, uuidv4())
+        const dbCorpus = {
+            corpus,
+            sessionID,
+            uploadDate: new Date(),
+            originalName: originalname
+        }
+
+        db.insert(dbCorpus, uuidv4())
             .then(({ id, rev }) => {
                 res.redirect('/corpus')
                 // clean up after 2 hours

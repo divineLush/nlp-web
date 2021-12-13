@@ -16,5 +16,7 @@
 14. Strip file extension from corpus name in templates
 15. Don't store files while uploading
 16. Compare corpuses page
-17. Edit corpush page + naming
+17. - Edit corpush page + naming -
 18. Integration with brat, nlp.js, custom input format in input1.json
+19. Test with large files
+20. !! Corpus metadata (texts num, upload date, version, layout type, ontology, user comments, etc) !!

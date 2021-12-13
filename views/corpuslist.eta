@@ -23,7 +23,9 @@
                 href="/corpus/<%= corpusItem._id %>"
             >
                 <h4 class="wordbreak m-0 pb-05"><%= corpusItem.originalName %></h4>
-                <div>Tokens: <%= corpusItem.totalTokens %></div>
+                <div>Uploaded:&nbsp;<%= corpusItem.uploadDate %></div>
+                <div>Texts:&nbsp;<%= corpusItem.textsNum %></div>
+                <div>Tokens:&nbsp;<%= corpusItem.totalTokens %></div>
             </a>
         <% })%>
     </div>
