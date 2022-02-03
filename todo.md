@@ -4,7 +4,7 @@
 2. Generate nicer colors
 3. - Don't duplicate labels in viewer -
 4. Optimize parsing
-5. Implement detailed view pages
+5. - Implement detailed view pages -
 6. Implement basic analytics
 7. Take care of sorting results
 8. Handle labels intersection
@@ -20,3 +20,4 @@
 18. Integration with brat, nlp.js, custom input format in input1.json
 19. Test with large files
 20. !! Corpus metadata (texts num, upload date, version, layout type, ontology, user comments, etc) !!
+21. What happens if there are chunks of text without labels?

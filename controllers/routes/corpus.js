@@ -2,6 +2,8 @@ const corpusList = require('../corpus/corpusList')
 const singleCorpus = require('../corpus/singleCorpus')
 const textByCorpus = require('../corpus/textByCorpus')
 
+const searchCorpusList = require('../search/searchCorpusList')
+
 exports.getCorpus = (req, res) => {
     const { sessionID } = req
     corpusList(sessionID, (corpuslist) => {
@@ -17,8 +19,18 @@ exports.getCorpusID = (req, res) => {
     })
 }
 
-exports.postCorpusSearch = (req, res) => {
-    res.redirect('/')
+exports.getCorpusListSearch = (req, res) => {
+    const { sessionID } = req
+    const { query } = req.params
+    searchCorpusList(query, sessionID, (corpuslist) => {
+        res.render('corpuslistSearchRes', { title: 'search results', corpuslist })
+    })
+}
+
+exports.postCorpusListSearch = (req, res) => {
+    const { query } = req.body
+    console.log(query)
+    res.redirect(`/search/corpuslist/${query}`)
 }
 
 exports.getText = (req, res) => {

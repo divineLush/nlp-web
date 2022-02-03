@@ -1,7 +1,7 @@
 <% layout('./layouts/base.eta') %>
 
 <% if(it.corpuslist.length === 0) { %>
-    <h1 class="textcenter">looks like you haven't uploaded any corpuses yet</h1>
+    <h1 class="textcenter">oops</h1>
 <% } else { %>
     <div class="flex jc-between mb-2">
         <form class="flex" action="/search/corpuslist" method="POST">
