@@ -1,20 +1,23 @@
 <% layout('./layouts/base.eta') %>
 
+<nav class="mb-1">
+    <a href="/corpus">back to corpus list</a>
+</nav>
+<div class="flex jc-between mb-2">
+    <form class="flex" action="/search/corpuslist" method="POST">
+        <input
+            class="mr-1"
+            type="text"
+            placeholder="input query"
+            id="query"
+            name="query"
+        />
+        <button type="submit">search</button>
+    </form>
+</div>
 <% if(it.corpuslist.length === 0) { %>
-    <h1 class="textcenter">oops</h1>
+    <h1 class="textcenter">nothing found</h1>
 <% } else { %>
-    <div class="flex jc-between mb-2">
-        <form class="flex" action="/search/corpuslist" method="POST">
-            <input
-                class="mr-1"
-                type="text"
-                placeholder="input query"
-                id="query"
-                name="query"
-            />
-            <button type="submit">search</button>
-        </form>
-    </div>
     <div class="flex flexwrap">
         <% it.corpuslist.forEach(function(corpusItem, idx) { %>
             <a
