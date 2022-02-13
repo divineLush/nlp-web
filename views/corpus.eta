@@ -31,12 +31,18 @@
                 <div class="text-result">
 
                     <% text.markup.forEach(function(entry) { %>
-                        <span class="mr-1 tag p-05-1 _background _<%= entry.label %>">
-                            <%= entry.token %>&nbsp;
-                            <span class="tagname">
-                                <%= entry.label %>
+
+                        <% if(entry.label) { %>
+                            <span class="mr-1 tag p-05-1 _background _<%= entry.label %>">
+                                <%= entry.text %>&nbsp;
+                                <span class="tagname">
+                                    <%= entry.label %>
+                                </span>
                             </span>
-                        </span>
+                        <% } else { %>
+                            <span><%= entry.text %></span>
+                        <% } %>
+
                     <% }) %>
 
                 </div>
