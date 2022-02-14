@@ -85,6 +85,7 @@ module.exports = (fileName, cb) => {
                 }
 
                 markup.push({ text: second, label: clean[0].label })
+                tokenNum++
             }
 
             // handle every other label
