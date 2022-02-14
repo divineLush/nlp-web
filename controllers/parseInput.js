@@ -8,9 +8,7 @@ const parsePos = pos => Math.abs(parseInt(pos))
 const cleanLabels = labels => labels
     // filter out all the garbage among the labels
     .filter(({ begin, end, label }) => {
-        const isLabelValid = typeof label === 'string'
-            || typeof label === 'number'
-            || Array.isArray(label)
+        const isLabelValid = typeof label === 'string' || Array.isArray(label)
 
         const isBegin = typeof begin !== 'undefined'
         const isEnd = typeof end !== 'undefined'
@@ -23,15 +21,15 @@ const cleanLabels = labels => labels
 
         const notEqual = intBegin !== intEnd
 
-        return isLabelValid && isBegin && isEnd && isBeginNum && isEndNum && notEqual
+        return isLabelValid && isBegin
+            && isEnd && isBeginNum
+            && isEndNum && notEqual
     })
     // map "begin" and "end" to numbers
     .map((el) => {
-        const format = x => new String(x).toString().toLowerCase()
-
         const label = (typeof el.label === 'string' || typeof el.label === 'number')
-            ? format(el.label)
-            : el.label.map(el => format(el))
+            ? el.label.toLowerCase()
+            : el.label.map(x => new String(x).toString().toLowerCase())
 
         return {
             ...el,
@@ -69,18 +67,27 @@ module.exports = (fileName, cb) => {
             const textLabels = []
             let tokenNum = 0
 
+            // handle text before first label
             const first = text.substring(0, clean[0].begin).trim()
             if (first.length)
                 markup.push({ text: first })
 
+            // handle first label
             const second = text.substring(clean[0].begin, clean[0].end).trim()
             if (second.length) {
-                textLabels.push(clean[0].label)
+                const lbl = clean[0].label
+                if (typeof lbl === 'string') {
+                    textLabels.push(lbl)
+                } else {
+                    lbl.forEach(el => {
+                        textLabels.push(el)
+                    })
+                }
+
                 markup.push({ text: second, label: clean[0].label })
             }
 
-            console.log(clean)
-
+            // handle every other label
             clean.forEach(({ begin, end, label }, index) => {
                 if (index === 0)
                     return
@@ -93,13 +100,22 @@ module.exports = (fileName, cb) => {
                 if (labelText.length) {
                     markup.push({ text: labelText, label })
 
-                    if (!textLabels.includes(label))
+                    const notIncluded = x => !textLabels.includes(x)
+
+                    if (typeof label === 'string' && notIncluded(label)) {
                         textLabels.push(label)
+                    } else if (Array.isArray(label)) {
+                        label.forEach(el => {
+                            if (notIncluded(el))
+                                textLabels.push(el)
+                        })
+                    }
 
                     tokenNum++
                 }
             })
 
+            // handle text after the last label
             const lastBegin = clean[clean.length - 1].begin
             const lastEnd = clean[clean.length - 1].end
             const last = text.substring(Math.max(lastBegin, lastEnd)).trim()
