@@ -8,7 +8,10 @@ const parsePos = pos => Math.abs(parseInt(pos))
 const cleanLabels = labels => labels
     // filter out all the garbage among the labels
     .filter(({ begin, end, label }) => {
-        const hasLabel = typeof label !== 'undefined'
+        const isLabelValid = typeof label === 'string'
+            || typeof label === 'number'
+            || Array.isArray(label)
+
         const isBegin = typeof begin !== 'undefined'
         const isEnd = typeof end !== 'undefined'
 
@@ -20,15 +23,23 @@ const cleanLabels = labels => labels
 
         const notEqual = intBegin !== intEnd
 
-        return hasLabel && isBegin && isEnd && isBeginNum && isEndNum && notEqual
+        return isLabelValid && isBegin && isEnd && isBeginNum && isEndNum && notEqual
     })
     // map "begin" and "end" to numbers
-    .map((el) => ({
-        ...el,
-        label: el.label.toLowerCase(),
-        begin: parsePos(el.begin),
-        end: parsePos(el.end)
-    }))
+    .map((el) => {
+        const format = x => new String(x).toString().toLowerCase()
+
+        const label = (typeof el.label === 'string' || typeof el.label === 'number')
+            ? format(el.label)
+            : el.label.map(el => format(el))
+
+        return {
+            ...el,
+            label,
+            begin: parsePos(el.begin),
+            end: parsePos(el.end)
+        }
+    })
     .sort((a, b) => {
         if (a.begin < b.begin)
             return -1

@@ -15,7 +15,7 @@
             {
                 "begin": 35,
                 "end": 32,
-                "label": "NORP"
+                "label": ["NORP", "LOC", "DATE"]
             },
             {
                 "begin": 37,
@@ -135,12 +135,7 @@
             {
                 "begin": 15,
                 "end": 19,
-                "label": "LOC"
-            },
-            {
-                "begin": 15,
-                "end": 19,
-                "label": "DATE"
+                "label": ["LOC", "DATE"]
             }
         ],
         "text": "Everybody said they were such fine, manly fellows"
