@@ -73,11 +73,6 @@
                 "label": "NORP"
             },
             {
-                "begin": 35,
-                "end": 32,
-                "label": "NORP"
-            },
-            {
                 "begin": 37,
                 "end": 41,
                 "label": "DATE"

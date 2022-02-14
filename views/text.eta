@@ -7,12 +7,16 @@
     </nav>
     <section class="text-result">
         <% it.text.markup.forEach(function(entry) { %>
-            <app-token class="mr-1 tag p-05-1 _background _<%= entry.label %>">
-                <%= entry.token %>&nbsp;
-                <span class="tagname">
-                    <%= entry.label %>
-                </span>
-            </app-token>
+
+            <% if(entry.label) { %>
+                <app-token class="mr-1 tag p-05-1 _background _<%= entry.label %>">
+                    <%= entry.text %>&nbsp;
+                    <span class="tagname"><%= entry.label %></span>
+                </app-token>
+            <% } else { %>
+                <span><%= entry.text %></span>
+            <% } %>
+
         <% }) %>
     </section>
 <% } else { %>

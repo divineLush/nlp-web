@@ -23,10 +23,11 @@ const cleanLabels = labels => labels
         return hasLabel && isBegin && isEnd && isBeginNum && isEndNum && notEqual
     })
     // map "begin" and "end" to numbers
-    .map((label) => ({
-        ...label,
-        begin: parsePos(label.begin),
-        end: parsePos(label.end)
+    .map((el) => ({
+        ...el,
+        label: el.label.toLowerCase(),
+        begin: parsePos(el.begin),
+        end: parsePos(el.end)
     }))
     .sort((a, b) => {
         if (a.begin < b.begin)
