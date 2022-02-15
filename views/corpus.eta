@@ -30,7 +30,7 @@
 
                 <div class="text-result">
 
-                    <% text.markup.forEach(function(entry) { %>
+                    <% text.markup.slice(0, 10).forEach(function(entry) { %>
 
                         <% if(entry.label) { %>
                             <span class="mr-1 tag p-05-1 _background _<%= entry.label %>">
