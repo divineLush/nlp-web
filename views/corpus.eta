@@ -2,6 +2,7 @@
 
 <nav class="mb-1">
     <a href="/corpus">back to corpus list</a>
+    <a href="/concordance/<%= it.corpusID %>" class="ml-1">build concordance</a>
 </nav>
 <% if(it.corpus) { %>
     <div class="flex jc-between mb-2">
