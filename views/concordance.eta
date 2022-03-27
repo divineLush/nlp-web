@@ -1,10 +1,24 @@
 <% layout('./layouts/base.eta') %>
 
-<h1 class="textcenter">Build concordance</h1>
-<form>
-    <label>Text</label>
-    <input type="text" id="text" />
-    <label>Size</label>
-    <input type="number" id="size" min="1" max="20" />
-    <button type="submit">build</button>
+<h1 class="m-0 mb-1 textcenter">Build concordance</h1>
+<form class="concordance-form" action="/concordance/build/<%= it.id %>" method="POST">
+    <label for="text">Text</label>
+    <input
+        class="mb-1 w-100"
+        type="text"
+        id="text"
+        name="text"
+        required
+    />
+    <label for="size">Size</label>
+    <input
+        class="mb-2 w-100"
+        type="number"
+        id="size"
+        name="size"
+        min="1"
+        max="20"
+        required
+    />
+    <button class="w-100" type="submit">build</button>
 </form>

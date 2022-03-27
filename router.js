@@ -14,7 +14,11 @@ const {
     getText
 } = require('./controllers/routes/corpus')
 
-const { getConcordance } = require('./controllers/routes/concordance')
+const {
+    getConcordance,
+    getConcordanceRes,
+    postConcordance
+} = require('./controllers/routes/concordance')
 
 const r = Router()
 const upload = multer({ dest: 'uploads/' })
@@ -27,12 +31,16 @@ r.get('/corpus/:id', getCorpusID)
 r.get('/corpus/:id/:textID', getText)
 
 r.get('/concordance/:id', getConcordance)
+r.get('/concordance/result/:id/:text/:size', getConcordanceRes)
 
 r.get('/search/corpus/:id/:query', getCorpusSearch)
 r.get('/search/corpuslist/:query', getCorpusListSearch)
 
 r.post('/upload', upload.single('upload'), postUpload)
+
 r.post('/search/corpus/:id', postCorpusSearch)
 r.post('/search/corpuslist', postCorpusListSearch)
+
+r.post('/concordance/build/:id', postConcordance)
 
 module.exports = r
