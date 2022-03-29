@@ -1,4 +1,4 @@
-const singleCorpus = require('../corpus/singleCorpus')
+const concordance = require('../corpus/concordance')
 
 exports.getConcordance = (req, res) => {
     const { id } = req.params
@@ -7,16 +7,10 @@ exports.getConcordance = (req, res) => {
 
 exports.getConcordanceRes = (req, res) => {
     const { sessionID } = req
-    const { id } = req.params
-    console.log(id)
-    singleCorpus(id, sessionID, (corpus) => {
-        console.log(corpus)
-        let res = []
-        corpus.forEach(({ markup }) => {
+    const { id, text, size } = req.params
 
-        })
-
-        res.render('concordanceresult', { title: 'concordance', id })
+    concordance(id, sessionID, text, size, (conc) => {
+        res.render('concordanceresult', { title: 'concordance result', id, conc })
     })
 }
 

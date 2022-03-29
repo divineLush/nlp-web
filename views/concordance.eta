@@ -1,5 +1,8 @@
 <% layout('./layouts/base.eta') %>
 
+<nav>
+    <a href="/corpus/<%= it.id %>">back to corpus</a>
+</nav>
 <h1 class="m-0 mb-1 textcenter">Build concordance</h1>
 <form class="concordance-form" action="/concordance/build/<%= it.id %>" method="POST">
     <label for="text">Text</label>

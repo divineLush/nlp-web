@@ -1,3 +1,13 @@
 <% layout('./layouts/base.eta') %>
 
-<div>result</div>
+<nav>
+    <a href="/corpus/<%= it.id %>">back to corpus</a>
+    <a class="ml-1" href="/concordance/<%= it.id %>">build another</a>
+</nav>
+<% if(it.conc.length) { %>
+    <% it.conc.forEach(function(item) { %>
+        <p class="mb-1"><%= item.text %></p>
+    <% }) %>
+<% } else { %>
+<h1 class="textcenter">nothing found</h1>
+<% } %>
