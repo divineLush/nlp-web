@@ -6,7 +6,11 @@
 </nav>
 <% if(it.conc.length) { %>
     <% it.conc.forEach(function(item) { %>
-        <p class="mb-1"><%= item.text %></p>
+        <p class="mb-1 textcenter">
+            <span><%= item.before %></span>
+            <span style="color: #cc517a"><%= item.text %></span>
+            <span><%= item.after %></span>
+        </p>
     <% }) %>
 <% } else { %>
 <h1 class="textcenter">nothing found</h1>

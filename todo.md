@@ -7,7 +7,7 @@
 5. - Implement detailed view pages -
 6. Implement basic analytics
 7. Take care of sorting results
-8. Handle labels intersection
+8. !!! Handle labels intersection
 9. - Implement searching -
 10. Implement pagination
 11. RST converter for input JSON
@@ -21,3 +21,8 @@
 19. Test with large files
 20. !! Corpus metadata (texts num, upload date, version, layout type, ontology, user comments, etc) !!
 21. - What happens if there are chunks of text without labels? -
+22. !! Default buffer size for concordance
+23. !!!! Test for huge corpus
+24. Group concordance results by text
+25. !!!!!! Statistics design
+26. !!!!!! Plan
