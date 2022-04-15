@@ -131,6 +131,6 @@ module.exports = (fileName, cb) => {
             })
         })
 
-        cb(corpus)
+        cb(corpus, fileBuff)
     })
 }

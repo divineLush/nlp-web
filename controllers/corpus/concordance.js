@@ -1,25 +1,49 @@
-const singleCorpus = require('../corpus/singleCorpus')
+const db = require('../../utils/db')
+
+const arrConcat = arr => arr.reduce((prev, curr) => prev += ` ${curr}`)
 
 module.exports = (id, sessionID, inputText, size, cb) => {
-    singleCorpus(id, sessionID, (corpus) => {
-        let res = []
+    const query = {
+        selector: { _id: id, sessionID }
+    }
 
-        corpus.forEach(({ markup, id }, idx) => {
-            markup.forEach(({ text }) => {
-                if (text.includes(inputText)) {
-                    let before = ''
-                    if (markup[idx - 1]) {
-                        const str = markup[idx - 1].text
-                        before = `${str.substring(str.length - size, str.length)} `
-                    }
+    db.find(query)
+        .then(({ docs }) => {
+            const doc = docs.length ? docs[0] : null
+            if (!doc) cb([])
 
-                    const after = markup[idx + 1] ? ` ${markup[idx + 1].text.substring(0, size)}` : ''
+            const { originalName } = doc
 
-                    res.push({ before, text, after, id })
-                }
+            db.attachment.get(`${id}-file`, originalName)
+                .then((body) => {
+                    // corpus from input file
+                    const corpus = JSON.parse(body)
+
+                    const res = []
+                    corpus.forEach(({ text }) => {
+                        const split = text.split(" ")
+
+                        split.forEach((text, idx) => {
+                            if (!text.includes(inputText)) return
+
+                            const lowerBound = idx - size <= 0 ? 0 : idx - size
+                            const upperBound = size + idx + 1 >= split.length ? split.length - 1 : size + idx + 1
+
+                            console.log(size + idx + 1, split.length)
+                            const before = arrConcat(split.slice(lowerBound, idx))
+                            const after = arrConcat(split.slice(idx+1, upperBound))
+
+                            res.push({
+                                before,
+                                after,
+                                text
+                            })
+                        })
+                    })
+
+                    cb(res)
+                })
+                .catch(console.error)
             })
-        })
-
-        cb(res)
-    })
+            .catch(console.error)
 }

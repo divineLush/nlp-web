@@ -9,7 +9,7 @@ exports.getConcordanceRes = (req, res) => {
     const { sessionID } = req
     const { id, text, size } = req.params
 
-    concordance(id, sessionID, text, size, (conc) => {
+    concordance(id, sessionID, text, parseInt(size), (conc) => {
         res.render('concordanceresult', { title: 'concordance result', id, conc })
     })
 }
