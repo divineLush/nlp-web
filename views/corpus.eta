@@ -16,10 +16,6 @@
             />
             <button type="submit">search</button>
         </form>
-        <div class="flex">
-            <button class="mr-1">download</button>
-            <button>delete</button>
-        </div>
     </div>
 
     <section>
