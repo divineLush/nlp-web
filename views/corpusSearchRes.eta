@@ -16,10 +16,6 @@
             />
             <button type="submit">search</button>
         </form>
-        <div class="flex">
-            <button class="mr-1">download</button>
-            <button>delete</button>
-        </div>
     </div>
 
     <% if(it.corpus.length) { %>
@@ -32,13 +28,19 @@
 
                     <div class="text-result">
 
-                        <% text.markup.forEach(function(entry) { %>
-                            <span class="mr-1 tag p-05-1 _background _<%= entry.label %>">
-                                <%= entry.token %>&nbsp;
-                                <span class="tagname">
-                                    <%= entry.label %>
+                        <% text.markup.slice(0, 10).forEach(function(entry) { %>
+
+                            <% if(entry.label) { %>
+                                <span class="mr-1 tag p-05-1 _background _<%= entry.label %>">
+                                    <%= entry.text %>&nbsp;
+                                    <span class="tagname">
+                                        <%= entry.label %>
+                                    </span>
                                 </span>
-                            </span>
+                            <% } else { %>
+                                <span><%= entry.text %></span>
+                            <% } %>
+
                         <% }) %>
 
                     </div>
